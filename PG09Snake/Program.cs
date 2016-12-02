@@ -19,8 +19,6 @@ namespace PG09Snake
 
                 Tail myDonkeyTail = new Tail(100, 8, "right");
                 myDonkeyTail.TailMovement();
-
-                myDonkeyTail.
             }
         }
     }
