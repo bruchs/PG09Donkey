@@ -28,13 +28,13 @@ namespace PG09Snake
                 Random randomFoodGenerator = new Random();
 
                 int score = 0;
-                int x = 20;
-                int y = 20;
-                int colourTog = 1;
+                int x = 20;         // starting x position
+                int y = 20;         // starting y positon
                 bool alive = true;
                 bool pelletOn = false;
                 int pelletX = 0;
                 int pelletY = 0;
+
 
                 int[] xPoints;
                 xPoints = new int[8] { 20, 19, 18, 17, 16, 15, 14, 13 };
@@ -77,7 +77,6 @@ namespace PG09Snake
                     Array.Resize<int>(ref yPoints, m_iTailLength);
 
                     System.Threading.Thread.Sleep(m_iTailDelay);
-                    colourTog++;
                     if (Console.KeyAvailable)
                     {
                         ConsoleKeyInfo key = Console.ReadKey(true);
@@ -141,17 +140,8 @@ namespace PG09Snake
                         yPoints[l] = yPoints[l - 1];
                     }
 
-                Console.SetCursorPosition(xPoints[0], yPoints[0]);
+                    Console.SetCursorPosition(xPoints[0], yPoints[0]);
                     
-                    if (colourTog == 2)
-                    {
-                        Console.BackgroundColor = ConsoleColor.DarkGreen;
-                    }
-                    else
-                    {
-                        colourTog = 1;
-                        Console.BackgroundColor = ConsoleColor.Green;
-                    }
                     Console.ForegroundColor = fgColor;
                     Console.Write("*");
 
@@ -187,63 +177,6 @@ namespace PG09Snake
                 //new Thread(() => Console.Beep(37, 1)).Start();
                 Console.BackgroundColor = ConsoleColor.Black;
                 Console.Clear();
-                /*
-
-                Console.Beep(2093, 260);
-
-                Console.Beep(1319, 260);
-
-                Console.Beep(1047, 260);
-
-                Console.Beep(1319, 260);
-
-                Console.Beep(1760, 260);
-
-                Console.Beep(1319, 260);
-
-                Console.Beep(932, 260);
-
-                Console.Beep(784, 260);
-               
-
-                Console.Beep(2093, 200);
-
-                Console.Beep(1319, 200);
-
-                Console.Beep(1047, 200);
-
-                Console.Beep(1319, 200);
-
-                Console.Beep(1760, 200);
-
-                Console.Beep(1319, 200);
-                */
-
-                Console.Beep(831, 250);
-
-
-                Console.Beep(785, 250);
-
-                ConsoleColor[] colors = (ConsoleColor[])ConsoleColor.GetValues(typeof(ConsoleColor));
-
-                for (int i = 0; i < 1; i++)
-                {
-                    foreach (var color in colors)
-                    {
-                        Console.SetCursorPosition(0, 0);
-                        Console.ForegroundColor = color;
-                        Console.Clear();
-                        Console.WriteLine("\n\n\n\n\n");
-                        Console.WriteLine("\n                       Game over :(");
-                        Console.WriteLine("\n\n                   Your score was: {0} !", score);
-                        System.Threading.Thread.Sleep(100);
-                    }
-                }
-                //Thread.Sleep(1000);
-                Console.WriteLine("\n\n\n\n\n\n             -- Press Any Key To Continue --");
-                //Thread.Sleep(500);
-                Console.ReadKey(true);
-                Console.ReadKey(true);
             }
         }
     }
