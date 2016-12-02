@@ -16,6 +16,9 @@ namespace PG09Snake
             {
                 Board myGameBoard = new Board();
                 myGameBoard.drawScreen();
+
+                Tail myDonkeyTail = new Tail();
+                myDonkeyTail.TailMovement();
             }
         }
     }
