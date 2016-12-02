@@ -17,8 +17,10 @@ namespace PG09Snake
                 Board myGameBoard = new Board();
                 myGameBoard.drawScreen();
 
-                Tail myDonkeyTail = new Tail(100, 8);
+                Tail myDonkeyTail = new Tail(100, 8, "right");
                 myDonkeyTail.TailMovement();
+
+                myDonkeyTail.
             }
         }
     }
