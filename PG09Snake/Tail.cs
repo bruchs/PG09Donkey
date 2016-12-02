@@ -141,8 +141,8 @@ namespace PG09Snake
                         yPoints[l] = yPoints[l - 1];
                     }
 
-                    Console.SetCursorPosition(xPoints[0], yPoints[0]);
-
+                Console.SetCursorPosition(xPoints[0], yPoints[0]);
+                    
                     if (colourTog == 2)
                     {
                         Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -155,7 +155,7 @@ namespace PG09Snake
                     Console.ForegroundColor = fgColor;
                     Console.Write("*");
 
-                    Console.SetCursorPosition(xPoints[xPoints.Length - 1], yPoints[yPoints.Length - 1]);
+                    //Console.SetCursorPosition(xPoints[xPoints.Length - 1], yPoints[yPoints.Length - 1]);
 
 
                     Console.BackgroundColor = bgColor;
