@@ -15,9 +15,6 @@ namespace PG09Snake
             {
                 Board myGameBoard = new Board();
                 myGameBoard.drawScreen();
-
-
-
             }
         }
     }
