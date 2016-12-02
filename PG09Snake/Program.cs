@@ -9,11 +9,13 @@ namespace PG09Snake
     class Program
     {
         private static bool m_bExit;
+
         static void Main(string[] args)
         {
             while (m_bExit != true)
             {
                 Board myGameBoard = new Board();
+                myGameBoard.drawScreen();
             }
         }
     }
