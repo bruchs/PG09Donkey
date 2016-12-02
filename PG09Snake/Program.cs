@@ -17,5 +17,7 @@ namespace PG09Snake
                 myGameBoard.drawScreen();
             }
         }
+
+        // There's a new cowboy in town.
     }
 }
