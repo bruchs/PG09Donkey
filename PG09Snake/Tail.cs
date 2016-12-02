@@ -9,13 +9,13 @@ namespace PG09Snake
     class Tail
     {
         private int m_iTailDelay;
-        private int m_iTailLenght;
+        private int m_iTailLength;
         private int m_sTailDirection;
 
-        public Tail(int tailDelay, int tailLenght, string tailDirection)
+        public Tail(int tailDelay, int tailLength, string tailDirection)
         {
             this.m_iTailDelay = tailDelay;
-            this.m_iTailLenght = tailLenght;
+            this.m_iTailLength = tailLength;
         }
 
         public void TailMovement()
@@ -73,8 +73,8 @@ namespace PG09Snake
                         }
 
                     }
-                    Array.Resize<int>(ref xPoints, m_iTailLenght);
-                    Array.Resize<int>(ref yPoints, m_iTailLenght);
+                    Array.Resize<int>(ref xPoints, m_iTailLength);
+                    Array.Resize<int>(ref yPoints, m_iTailLength);
 
                     System.Threading.Thread.Sleep(m_iTailDelay);
                     colourTog++;
@@ -155,7 +155,7 @@ namespace PG09Snake
                     Console.ForegroundColor = fgColor;
                     Console.Write("*");
 
-                    //Console.SetCursorPosition(xPoints[xPoints.Length - 1], yPoints[yPoints.Length - 1]);
+                    Console.SetCursorPosition(xPoints[xPoints.Length - 1], yPoints[yPoints.Length - 1]);
 
 
                     Console.BackgroundColor = bgColor;
@@ -164,7 +164,7 @@ namespace PG09Snake
                     if (x == pelletX & y == pelletY)
                     {
                         pelletOn = false;
-                        m_iTailLenght += 1;
+                        m_iTailLength += 1;
                         m_iTailDelay -= m_iTailDelay / 16;
                         //new Thread(() => Console.Beep(320, 250)).Start();
                     }
@@ -177,7 +177,7 @@ namespace PG09Snake
                         }
 
                     }
-                    score = ((m_iTailLenght) - 8);
+                    score = ((m_iTailLength) - 8);
                     Console.SetCursorPosition(2, 2);
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.BackgroundColor = ConsoleColor.Black;
