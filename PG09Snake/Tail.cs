@@ -13,6 +13,17 @@ namespace PG09Snake
         public string m_sTailDirection;
         private bool m_bIsTailAlive = true;
 
+        int x = 20;
+        int y = 20;
+
+        bool pelletOn = false;
+        int pelletX = 0;
+        int pelletY = 0;
+
+        int[] xPoints = {20, 19, 18, 17, 16, 15, 14, 13 };
+        int[] yPoints = { 20, 20, 20, 20, 20, 20, 20, 20 };
+        Random randomFoodGenerator = new Random();
+
         public Tail(int tailDelay, int tailLenght, string tailDirection)
         {
             this.m_iTailDelay = tailDelay;
@@ -20,58 +31,46 @@ namespace PG09Snake
             this.m_sTailDirection = tailDirection;
         }
 
-        public void TailMovement()
+        public void TailFood()
         {
 
-            ConsoleColor bgColor = Console.BackgroundColor;
-            ConsoleColor fgColor = Console.ForegroundColor;
+            if (pelletOn == false)
+            {
+                bool collide = false;
+                pelletOn = true;
+                pelletX = randomFoodGenerator.Next(4, Console.WindowWidth - 4);
+                pelletY = randomFoodGenerator.Next(4, Console.WindowHeight - 4);
 
-            Random randomFoodGenerator = new Random();
+                for (int l = (xPoints.Length - 1); l > 1; l--)
+                {
+                    if (xPoints[l] == pelletX & yPoints[l] == pelletY)
+                    {
+                        collide = true;
+                    }
+                }
 
-            int x = 20;
-            int y = 20;
+                if (collide == true)
+                {
+                    pelletOn = false;
+                    
+                }
+                else
+                {
+                    Console.SetCursorPosition(pelletX, pelletY);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.Write("#");
+                    pelletOn = true;
+                }
+            }
+        }
 
-            bool pelletOn = false;
-            int pelletX = 0;
-            int pelletY = 0;
-
-            int[] xPoints;
-            xPoints = new int[8] { 20, 19, 18, 17, 16, 15, 14, 13 };
-            int[] yPoints;
-            yPoints = new int[8] { 20, 20, 20, 20, 20, 20, 20, 20 };
-
-
+        public void TailMovement()
+        {           
             while (m_bIsTailAlive)
             {
-                if (pelletOn == false)
-                {
-                    bool collide = false;
-                    pelletOn = true;
-                    pelletX = randomFoodGenerator.Next(4, Console.WindowWidth - 4);
-                    pelletY = randomFoodGenerator.Next(4, Console.WindowHeight - 4);
 
-                    for (int l = (xPoints.Length - 1); l > 1; l--)
-                    {
-                        if (xPoints[l] == pelletX & yPoints[l] == pelletY)
-                        {
-                            collide = true;
-                        }
-                    }
-                    if (collide == true)
-                    {
-                        pelletOn = false;
-                        break;
-                    }
-                    else
-                    {
-                        Console.SetCursorPosition(pelletX, pelletY);
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        Console.BackgroundColor = bgColor;
-                        Console.Write("#");
-                        pelletOn = true;
-                    }
-
-                }
+                TailFood();
                 Array.Resize<int>(ref xPoints, m_iTailLenght);
                 Array.Resize<int>(ref yPoints, m_iTailLenght);
 
@@ -88,12 +87,14 @@ namespace PG09Snake
                                 m_sTailDirection = "right";
                             }
                             break;
+
                         case ConsoleKey.LeftArrow:
                             if (m_sTailDirection != "right")
                             {
                                 m_sTailDirection = "left";
                             }
                             break;
+
                         case ConsoleKey.UpArrow:
 
                             if (m_sTailDirection != "down")
@@ -101,6 +102,7 @@ namespace PG09Snake
                                 m_sTailDirection = "up";
                             }
                             break;
+
                         case ConsoleKey.DownArrow:
 
                             if (m_sTailDirection != "up")
@@ -108,24 +110,28 @@ namespace PG09Snake
                                 m_sTailDirection = "down";
                             }
                             break;
+
                         default:
                             break;
                     }
-                } //Inputs & direction
-
+                } 
+                //Inputs & direction
 
                 if (m_sTailDirection == "right")
                 {
                     x += 1;
                 }
+
                 else if (m_sTailDirection == "left")
                 {
                     x -= 1;
                 }
+
                 else if (m_sTailDirection == "down")
                 {
                     y += 1;
                 }
+
                 else if (m_sTailDirection == "up")
                 {
                     y -= 1;
@@ -143,13 +149,14 @@ namespace PG09Snake
                 Console.SetCursorPosition(xPoints[0], yPoints[0]);
                     
 
-                Console.ForegroundColor = fgColor;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("=");
 
                 Console.SetCursorPosition(xPoints[xPoints.Length - 1], yPoints[yPoints.Length - 1]);
 
-
-                Console.BackgroundColor = bgColor;
+                // Use Console.BackgroundColor for eliminate the tail of the donkey that is not being used.
+                Console.BackgroundColor = ConsoleColor.Black;
+                // Use Console.WriteLine to replace the '=' donkey's tail with a blank space.
                 Console.Write(" ");
 
                 if (x == pelletX & y == pelletY)
@@ -173,7 +180,7 @@ namespace PG09Snake
             //new Thread(() => Console.Beep(37, 1)).Start();
             Console.BackgroundColor = ConsoleColor.Black;
             Console.Clear();
-
+          
         }
     }
 }
