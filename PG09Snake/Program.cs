@@ -20,6 +20,17 @@ namespace PG09Snake
             Environment.NewLine +@"                            |___/                          ");
         }
 
+        private static void GameOver()
+        {
+            Console.Clear();
+            Console.WriteLine(     "  _____                         ____                  _ " +
+            Environment.NewLine + @" / ____|                       / __ \                | |" +
+            Environment.NewLine + @"| |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __ | |" +
+            Environment.NewLine + @"| | |_ |/ _` | '_ ` _ \ / _ \ | |  | \ \ / / _ \ '__|| |" +
+            Environment.NewLine + @"| |__| | (_| | | | | | |  __/ | |__| |\ V /  __/ |   |_|" +
+            Environment.NewLine + @" \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|   (_)");
+        }
+
         private static bool m_bExit;
 
         static void Main(string[] args)
@@ -43,7 +54,7 @@ namespace PG09Snake
                 Tail myDonkeyTail = new Tail(100, 8, "Up");
                 myDonkeyTail.TailMovement();
 
-                //We subtract 8 from the length of the tail so the score begins at 0.
+                //We subtract 8 from the length of the tail so the score begins at 0 and updates as the tail grows.
                 m_iScore = ((myDonkeyTail.m_iTailLenght) - 8);
                 Console.SetCursorPosition(2, 2);
                 Console.WriteLine("Score: {0}", m_iScore);
