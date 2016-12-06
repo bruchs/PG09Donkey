@@ -10,7 +10,7 @@ namespace PG09Snake
     {
         private static void TitleScreen()
         {
-            Console.Clear();
+            Console.Clear();   
             Console.WriteLine(    " ____              _              _       _____     _      " +
             Environment.NewLine +@"|  _ \  ___  _ __ | | _____ _   _( )___  |_   _|_ _| | ___ " +
             Environment.NewLine +@"| | | |/ _ \| '_ \| |/ / _ \ | | |// __|   | |/ _` | |/ _ \" +
