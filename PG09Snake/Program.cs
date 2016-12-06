@@ -9,7 +9,7 @@ namespace PG09Snake
 {
     class Program
     {
-        private static void TitleScreen()
+        private static void TitleScreen()    
         {
             Console.Clear();   
             Console.WriteLine(    " ____              _              _       _____     _      " +
