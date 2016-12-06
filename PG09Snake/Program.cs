@@ -8,12 +8,25 @@ namespace PG09Snake
 {
     class Program
     {
+        private static void TitleScreen()
+        {
+            Console.Clear();
+            Console.WriteLine(    " ____              _              _       _____     _      " +
+            Environment.NewLine +@"|  _ \  ___  _ __ | | _____ _   _( )___  |_   _|_ _| | ___ " +
+            Environment.NewLine +@"| | | |/ _ \| '_ \| |/ / _ \ | | |// __|   | |/ _` | |/ _ \" +
+            Environment.NewLine +@"| |_| | (_) | | | |   <  __/ |_| | \__ \   | | (_| | |  __/" +
+            Environment.NewLine +@"|____/ \___/|_| |_|_|\_\___|\__, | |___/   |_|\__,_|_|\___|" +
+            Environment.NewLine +@"                            |___/                          ");
+        }
+
         private static bool m_bExit;
 
         static void Main(string[] args)
         {
+
             int m_iScore = 0;
 
+            TitleScreen();
             while (m_bExit != true)
             {
                 Board myGameBoard = new Board();
