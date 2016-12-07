@@ -9,27 +9,6 @@ namespace PG09Snake
 {
     class Program
     {
-        private static void TitleScreen()    
-        {
-            Console.Clear();   
-            Console.WriteLine(    " ____              _              _       _____     _      " +
-            Environment.NewLine +@"|  _ \  ___  _ __ | | _____ _   _( )___  |_   _|_ _| | ___ " +
-            Environment.NewLine +@"| | | |/ _ \| '_ \| |/ / _ \ | | |// __|   | |/ _` | |/ _ \" +
-            Environment.NewLine +@"| |_| | (_) | | | |   <  __/ |_| | \__ \   | | (_| | |  __/" +
-            Environment.NewLine +@"|____/ \___/|_| |_|_|\_\___|\__, | |___/   |_|\__,_|_|\___|" +
-            Environment.NewLine +@"                            |___/                          ");
-        }
-
-        private static void GameOver()
-        {
-            Console.Clear();
-            Console.WriteLine(     "  _____                         ____                  _ " +
-            Environment.NewLine + @" / ____|                       / __ \                | |" +
-            Environment.NewLine + @"| |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __ | |" +
-            Environment.NewLine + @"| | |_ |/ _` | '_ ` _ \ / _ \ | |  | \ \ / / _ \ '__|| |" +
-            Environment.NewLine + @"| |__| | (_| | | | | | |  __/ | |__| |\ V /  __/ |   |_|" +
-            Environment.NewLine + @" \_____|\__,_|_| |_| |_|\___|  \____/  \_/ \___|_|   (_)");
-        }
 
         private static bool m_bExit;
 
@@ -38,21 +17,22 @@ namespace PG09Snake
 
             int m_iScore = 0;
 
-            TitleScreen();
             while (m_bExit != true)
             {
                 //// Create a new SoundPlayer for the background music.
-                //SoundPlayer music = new SoundPlayer();
+                SoundPlayer music = new SoundPlayer();
                 //// Search for the audio file.
-                //music.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "Music.wav";
+                music.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "Music.wav";
                 //// PlayLooping to get music trough the whole gameplay.
-                //music.PlayLooping();
+                music.PlayLooping();
 
                 Board myGameBoard = new Board();
                 myGameBoard.drawScreen();
 
                 Tail myDonkeyTail = new Tail(100, 8, "Up");
                 myDonkeyTail.TailMovement();
+
+                myGameBoard.GameOver();
 
                 //We subtract 8 from the length of the tail so the score begins at 0 and updates as the tail grows.
                 m_iScore = ((myDonkeyTail.m_iTailLenght) - 8);

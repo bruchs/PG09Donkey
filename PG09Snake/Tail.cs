@@ -70,6 +70,8 @@ namespace PG09Snake
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.BackgroundColor = ConsoleColor.Yellow;
                     Console.Write("X");
+
+                    Console.BackgroundColor = ConsoleColor.Black;
                     m_bAss = true;
                 }
             }
@@ -179,14 +181,14 @@ namespace PG09Snake
                 }
                 catch
                 {
-                    Console.WriteLine(" --GO FUCK YOURSELF! ");
-                    Console.ReadLine();
+                    new Thread(() => Console.Beep(200, 250)).Start();
+                    m_bIsTailAlive = false;
                 }
 
 
 
-                Console.ForegroundColor = ConsoleColor.DarkGray;
-                Console.BackgroundColor = ConsoleColor.Gray;
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.BackgroundColor = ConsoleColor.Cyan;
                 Console.Write("O");
 
                 Console.SetCursorPosition(m_xTailPoints[m_xTailPoints.Length - 1], m_yTailPoints[m_yTailPoints.Length - 1]);
