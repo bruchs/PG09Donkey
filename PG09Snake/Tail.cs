@@ -13,6 +13,7 @@ namespace PG09Snake
         public int m_iTailDelay;
         public int m_iTailLenght;
         public string m_sTailDirection;
+        int m_iScore = 0;
         private bool m_bIsTailAlive = true;
 
         // Keep the reference for the tail position
@@ -40,6 +41,7 @@ namespace PG09Snake
             this.m_xTailPoints = new int[8];
             this.m_yTailPoints = new int[8];
         }
+
 
         public void TailFood()
         {
@@ -198,6 +200,10 @@ namespace PG09Snake
                 // Use Console.WriteLine to replace the '=' donkey's tail with a blank space.
                 Console.Write(" ");
 
+                            //We subtract 8 from the length of the tail so the score begins at 0 and updates as the tail grows.
+                m_iScore = ((m_iTailLenght) - 8);
+                Console.SetCursorPosition(1, 1);
+                Console.WriteLine("Score: {0}", m_iScore);
 
                 // Collision with the tail
                 for (int i = (m_xTailPoints.Length - 1); i > 1; i--)
@@ -206,7 +212,6 @@ namespace PG09Snake
                     {
                         m_bIsTailAlive = false;
                     }
-
                 }
 
                 if (m_xTailPosition >= w || m_yTailPosition >= h)
@@ -217,6 +222,10 @@ namespace PG09Snake
             }
             Console.SetCursorPosition(2, 2);
             Console.Clear();
+
+        }
+        public void Score()
+        {
 
         }
     }

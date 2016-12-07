@@ -14,7 +14,7 @@ namespace PG09Snake
 
         public Board() { }
 
-        private void TitleScreen()
+        public void TitleScreen()
         {
 
             Console.Clear();
@@ -22,7 +22,7 @@ namespace PG09Snake
             Console.WriteLine("\n   ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄  ");
             Console.WriteLine("   ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░  ");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("            ____              _              _       _____     _      " +
+            Console.WriteLine(     "            ____              _              _       _____     _      " +
             Environment.NewLine + @"           |  _ \  ___  _ __ | | _____ _   _( )___  |_   _|_ _| | ___ " +
             Environment.NewLine + @"           | | | |/ _ \| '_ \| |/ / _ \ | | |// __|   | |/ _` | |/ _ \" +
             Environment.NewLine + @"           | |_| | (_) | | | |   <  __/ |_| | \__ \   | | (_| | |  __/" +
@@ -44,7 +44,7 @@ namespace PG09Snake
             Console.WriteLine("\n   ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄ ▄▄  ");
             Console.WriteLine("   ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░  ");
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("               _____                         ____                  _ " +
+            Console.WriteLine(     "               _____                         ____                  _ " +
             Environment.NewLine + @"              / ____|                       / __ \                | |" +
             Environment.NewLine + @"             | |  __  __ _ _ __ ___   ___  | |  | |_   _____ _ __ | |" +
             Environment.NewLine + @"             | | |_ |/ _` | '_ ` _ \ / _ \ | |  | \ \ / / _ \ '__|| |" +
@@ -61,7 +61,7 @@ namespace PG09Snake
         {
             Console.CursorVisible = (false);
             Console.Title = "Donkey's Tale";
-            Console.SetWindowSize(60, 40);
+            Console.SetWindowSize(80, 40);
 
             Console.SetBufferSize(Console.WindowWidth, Console.WindowHeight);
             Console.BackgroundColor = ConsoleColor.Black;

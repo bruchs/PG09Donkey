@@ -15,8 +15,6 @@ namespace PG09Snake
         static void Main(string[] args)
         {
 
-            int m_iScore = 0;
-
             while (m_bExit != true)
             {
                 //// Create a new SoundPlayer for the background music.
@@ -29,15 +27,14 @@ namespace PG09Snake
                 Board myGameBoard = new Board();
                 myGameBoard.drawScreen();
 
+                myGameBoard.TitleScreen();
+                Console.ReadLine();
+                Console.Clear();
+
                 Tail myDonkeyTail = new Tail(100, 8, "Up");
                 myDonkeyTail.TailMovement();
 
                 myGameBoard.GameOver();
-
-                //We subtract 8 from the length of the tail so the score begins at 0 and updates as the tail grows.
-                m_iScore = ((myDonkeyTail.m_iTailLenght) - 8);
-                Console.SetCursorPosition(2, 2);
-                Console.WriteLine("Score: {0}", m_iScore);
             }
          }
     }
